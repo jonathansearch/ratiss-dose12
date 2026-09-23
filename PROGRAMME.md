@@ -1,0 +1,13 @@
+# PROGRAMME DOSE12 (verdicts pré-enregistrés)
+- DOSE-01 : p* = premier p où QAOA-bruité régresse ou < 90% exact (par backend).
+- DOSE-02 : dissociation H2 : erreur vs FCI exacte, seuil chimique 1.6mHa atteint où ?
+- DOSE-03 : Rips sépare bruit/signal (AUC ou marge) là où β1-Hamming a échoué.
+- DOSE-04 : corrélation prédiction/dérive mesurée (0.04) > 0.5.
+- DOSE-05 : gagnant mitigation par observable, gain chiffré vs brut.
+- DOSE-06 : erreur logique < erreur physique (seuil montré en simu).
+- DOSE-07 : énergie conservée à 1e-6 + destin (rebond/fragmentation).
+- DOSE-08 : registre public ≥ 10 prédictions datées + statuts.
+- DOSE-09 : 1 cas chiffré où QV dit OK et courbes disent MORT (ou inverse).
+- DOSE-10 : modèle qui prédit 60% marrakesh (vs 88% kingston) à ±10%.
+- DOSE-11 : H·t et fragmentation reproduits depuis k=0.108.
+- DOSE-12 : 1 réplication indépendante documentée (ou protocole prêt + badge).
