@@ -1,0 +1,26 @@
+{
+"temoin": {
+"b1_max": 1.0,
+"vie": 0.0,
+"etincelle": false,
+"E_ref": -3772.98,
+"E_fin": -3760.49,
+"drift": 0.04232
+},
+"spark_v3_A10": {
+"b1_max": 2.0,
+"vie": 0.2,
+"etincelle": true,
+"E_ref": -3772.98,
+"E_fin": -3024.98,
+"drift": 0.26031
+},
+"spark_v5_A20": {
+"b1_max": 5.0,
+"vie": 0.2,
+"etincelle": true,
+"E_ref": -3772.98,
+"E_fin": -969.37,
+"drift": 0.83605
+}
+}

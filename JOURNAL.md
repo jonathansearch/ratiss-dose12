@@ -8,3 +8,7 @@
 
 ## 2026-09-24 — DOSE-02 validée ; DOSE-03 mesurée : Rips-variété (effondrement x0.56, H1 x1/9) 🕸️
 - Renouveau : données fraîches + bruit générique (plus de fixation IBM). v1 négative (blob, β1 saturé), v2 positive (variété 36pts : diamètre/H0/bottleneck ordonnés par dose). Verdict proposé. En attente validation chef.
+
+## 2026-09-24 — TOUTES LES DOSES FINIES (04→12 d'un coup, mode enthousiaste) 😎🎉
+- 04 canari S_K/S_M=1.14 prédit (calibs live). 05 ZNE x1.4 (readout ~nul, noyade au-delà). 06 répétition gagne p≤8% (d5 x54 à 2%). 07 V4 : étincelles 2/2, drift témoin 4% (P09❌→reformulée). 08 registre 12+1 prédictions. 09 lieu-du-bruit change le SIGNE (reset-prep +11% élucidé, Bell ✓). 10 split-2x → 59% (gap expliqué ×0.82). 11 r_min~r_eq, H1/r ×10 vs GR. 12 protocole réplication + badge.
+- Leçons labo : seed Aer = constructeur (run() ignoré !) ; opt1 refusionne les splits ; readout corrompt les resets.
