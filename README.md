@@ -5,8 +5,8 @@ puis suivant. Pas de biologie (rien pour concrétiser).
 
 | Dose | Chantier | Statut |
 |---|---|---|
-| 01 | Microscope QAOA (MaxCut, mort couche par couche) | 🟡 en cours |
-| 02 | Microscope VQE (H2, exact vs bruit) | ⬜ |
+| 01 | Microscope QAOA (MaxCut, mort couche par couche) | ✅ p*=3 (K+M) |
+| 02 | Microscope VQE (H2, exact vs bruit) | 🟡 verdict proposé |
 | 03 | Rips topologiques (détecteur bruit/signal) | ⬜ |
 | 04 | Canari virtuel (dérive depuis calibrations publiques) | ⬜ |
 | 05 | Shootout mitigation (ZNE vs readout vs twirl) | ⬜ |
