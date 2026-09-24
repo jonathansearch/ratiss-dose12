@@ -15,3 +15,6 @@
 
 ## 2026-09-24 — Sonde Mat3ra (clés user) : API OK, gap Si 0.986 eV miné (gratuit) 🔑
 - Free confirmé (calcul payant, banque libre). Note : mat3ra/SONDE.md. Prochain : soumission Total Energy Si dès recharge Balance.
+
+## 2026-09-24 — Sonde Google qsim : exact=Aer (0.726/0.727), 24q en ~1s ⚡
+- Moteur QVM testé en local (gratuit). Bruit : écart de placement vs Aer (0.41 vs 0.51, documenté). Note : google-qvm/SONDE.md.
