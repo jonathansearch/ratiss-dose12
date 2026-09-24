@@ -18,3 +18,7 @@
 
 ## 2026-09-24 — Sonde Google qsim : exact=Aer (0.726/0.727), 24q en ~1s ⚡
 - Moteur QVM testé en local (gratuit). Bruit : écart de placement vs Aer (0.41 vs 0.51, documenté). Note : google-qvm/SONDE.md.
+
+## 2026-09-24 — Visuels animés : 3 GIFs (H2 réel, Si phonon, Rabi) 🎬
+- Réponse à la remarque "pas de vraies simulations visuelles" : GIFs légers
+  inline README (conventions qmsolve/md_animation). Données réelles quand ça existe.

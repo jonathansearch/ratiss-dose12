@@ -5,6 +5,11 @@ Pas de biologie (rien pour concrétiser).
 
 [![replication](https://img.shields.io/badge/replication-protocol_ready-blue)](dose-12-replication/PROTOCOLE_REPLICATION.md)
 
+## 🎬 Visuels animés
+| H2 VQE (dose-02, données réelles) | Si diamant + phonon | Rabi sur Bloch |
+|---|---|---|
+| ![H2](visuals/h2_vqe.gif) | ![Si](visuals/si_phonon.gif) | ![Rabi](visuals/rabi.gif) |
+
 | Dose | Chantier | Statut |
 |---|---|---|
 | 01 | Microscope QAOA (MaxCut, mort couche par couche) | ✅ p*=3 (K+M) |
