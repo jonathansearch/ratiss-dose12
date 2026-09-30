@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # SPDX-License-Identifier: MIT
 """DOSE-02 : microscope VQE-H2 (dissociation, exact vs bruit K/M, seuil 1.6mHa)."""
+import os as _os, pathlib as _pl  # RATISS: chemins portables (dépôts clonés côte à côte, ou RATISS_HOME)
+_RATISS_HOME = _os.environ.get('RATISS_HOME') or str(_pl.Path(__file__).resolve().parents[2])
 import json, os
 import numpy as np
 from scipy.optimize import minimize
@@ -46,5 +48,5 @@ for dist in DISTS:
     row['depth'] = {t: transpile(ans.assign_parameters(best.x), backend=BE[t], optimization_level=1).depth() for t in ('K', 'M')}
     OUT[str(dist)] = row
     print(line + f" | {row['depth']['K']}/{row['depth']['M']}")
-json.dump(OUT, open('/home/user/ratiss-dose12/dose-02-vqe/dose02.json', 'w'), indent=0)
+json.dump(OUT, open((_RATISS_HOME + '/ratiss-dose12/dose-02-vqe/dose02.json'), 'w'), indent=0)
 print('[dose02] ok')

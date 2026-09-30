@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # SPDX-License-Identifier: MIT
 """DOSE-06 : repetition d=3/5 vs physique (seuil), bruit generique."""
+import os as _os, pathlib as _pl  # RATISS: chemins portables (dépôts clonés côte à côte, ou RATISS_HOME)
+_RATISS_HOME = _os.environ.get('RATISS_HOME') or str(_pl.Path(__file__).resolve().parents[2])
 import json
 import matplotlib
 matplotlib.use('Agg')
@@ -26,12 +28,12 @@ for p in PS:
     OUT['d3'].append(round(run_rep(3, p), 4))
     OUT['d5'].append(round(run_rep(5, p), 4))
     print(f"p={p}: phys={OUT['phys'][-1]} d3={OUT['d3'][-1]} d5={OUT['d5'][-1]}")
-json.dump(OUT, open('/home/user/ratiss-dose12/dose-06-qec/dose06.json', 'w'))
+json.dump(OUT, open((_RATISS_HOME + '/ratiss-dose12/dose-06-qec/dose06.json'), 'w'))
 plt.figure(figsize=(7, 4))
 for k, c in (('phys', 'black'), ('d3', 'steelblue'), ('d5', 'darkgreen')):
     plt.loglog(PS, OUT[k], 'o-', c=c, label={'phys': 'physique', 'd3': 'repetition d=3', 'd5': 'repetition d=5'}[k])
 plt.loglog(PS, PS, ':', c='gray', label='y=x')
 plt.xlabel('p (depolarisant+readout)'); plt.ylabel('taux erreur logique'); plt.legend(fontsize=8)
 plt.title('DOSE-06 : repetition — logique < physique sous le seuil'); plt.grid(True, alpha=0.3); plt.tight_layout()
-plt.savefig('/home/user/ratiss-dose12/dose-06-qec/fig_dose06.png', dpi=100)
+plt.savefig((_RATISS_HOME + '/ratiss-dose12/dose-06-qec/fig_dose06.png'), dpi=100)
 print('[dose06] ok')

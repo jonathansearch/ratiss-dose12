@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # SPDX-License-Identifier: MIT
 """DOSE-05 : shootout mitigation (brut vs readout vs ZNE), bruit generique."""
+import os as _os, pathlib as _pl  # RATISS: chemins portables (dépôts clonés côte à côte, ou RATISS_HOME)
+_RATISS_HOME = _os.environ.get('RATISS_HOME') or str(_pl.Path(__file__).resolve().parents[2])
 import json
 import matplotlib
 matplotlib.use('Agg')
@@ -57,7 +59,7 @@ A = np.vander([1, 3, 5], 2, increasing=True)
 zzne = float(np.linalg.lstsq(A, zs, rcond=None)[0][0])
 OUT = {'zz_exact': round(zx, 4), 'brut': round(zb, 4), 'readout_mit': round(zm, 4),
        'zne': round(zzne, 4), 'zne_pts': [round(v, 4) for v in zs]}
-json.dump(OUT, open('/home/user/ratiss-dose12/dose-05-mitigation/dose05.json', 'w'))
+json.dump(OUT, open((_RATISS_HOME + '/ratiss-dose12/dose-05-mitigation/dose05.json'), 'w'))
 for k in ('brut', 'readout_mit', 'zne'):
     print(f"{k}: zz={OUT[k]} err={abs(OUT[k] - zx):.4f}")
 print(f'[dose05] exact={zx:.4f} ok')
@@ -67,4 +69,4 @@ plt.bar(ks, [abs(OUT[k] - zx) for k in ks], color=['firebrick', 'orange', 'darkg
 plt.axhline(0.01, c='black', ls=':', label='seuil 0.01')
 plt.ylabel('|zz - exact|'); plt.title('DOSE-05 : shootout mitigation (cellule 2L, p=q=0.02)')
 plt.legend(); plt.tight_layout()
-plt.savefig('/home/user/ratiss-dose12/dose-05-mitigation/fig_dose05.png', dpi=100)
+plt.savefig((_RATISS_HOME + '/ratiss-dose12/dose-05-mitigation/fig_dose05.png'), dpi=100)

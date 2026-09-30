@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # SPDX-License-Identifier: MIT
 """DOSE-09 : meme budget erreur, destins differents (portes vs readout)."""
+import os as _os, pathlib as _pl  # RATISS: chemins portables (dépôts clonés côte à côte, ou RATISS_HOME)
+_RATISS_HOME = _os.environ.get('RATISS_HOME') or str(_pl.Path(__file__).resolve().parents[2])
 import json
 import matplotlib
 matplotlib.use('Agg')
@@ -45,7 +47,7 @@ for lam in (0.0, 0.4, 0.8, 1.2, 1.6):
     zr = zz_of(run_qc(cell(lam), nR))
     OUT[str(lam)] = [round(zx, 4), round(zd, 4), round(zr, 4)]
     print(f'lam={lam}: exact={zx:.3f} portes={zd:.3f} readout={zr:.3f}')
-json.dump(OUT, open('/home/user/ratiss-dose12/dose-09-qv/dose09.json', 'w'))
+json.dump(OUT, open((_RATISS_HOME + '/ratiss-dose12/dose-09-qv/dose09.json'), 'w'))
 xs = sorted(float(k) for k in OUT)
 plt.figure(figsize=(7, 4))
 plt.plot(xs, [OUT[str(v)][0] for v in xs], 's--k', label='exact')
@@ -53,5 +55,5 @@ plt.plot(xs, [OUT[str(v)][1] for v in xs], 'o-', c='firebrick', label='bruit POR
 plt.plot(xs, [OUT[str(v)][2] for v in xs], 'o-', c='steelblue', label='bruit READOUT (2%)')
 plt.xlabel('lambda'); plt.ylabel('zz'); plt.legend(fontsize=8); plt.grid(True, alpha=0.3)
 plt.title('DOSE-09 : meme budget 2%, destins differents'); plt.tight_layout()
-plt.savefig('/home/user/ratiss-dose12/dose-09-qv/fig_dose09.png', dpi=100)
+plt.savefig((_RATISS_HOME + '/ratiss-dose12/dose-09-qv/fig_dose09.png'), dpi=100)
 print('[dose09] ok')

@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
 # SPDX-License-Identifier: MIT
 """DOSE-11 : sweep k autour de 0.108 (S03) — rebond robuste ? (base: s03_base.py)."""
+import os as _os, pathlib as _pl  # RATISS: chemins portables (dépôts clonés côte à côte, ou RATISS_HOME)
+_RATISS_HOME = _os.environ.get('RATISS_HOME') or str(_pl.Path(__file__).resolve().parents[2])
 import json
 import numpy as np
-src = open('/home/user/ratiss-dose12/dose-11-jouets/s03_base.py').read().split('out = {}')[0]
+src = open((_RATISS_HOME + '/ratiss-dose12/dose-11-jouets/s03_base.py')).read().split('out = {}')[0]
 ns = {}
 exec(src, ns)
 run, G = ns['run'], ns['G']
@@ -17,5 +19,5 @@ for tag, k in (('GR_k0', 0.0), ('k08', 0.0864), ('k10', 0.108), ('k12', 0.1296))
                 'retour_H1': round(s[-1]['H1'] / s[0]['H1'] if s[0]['H1'] else 0, 3),
                 'r_eq_theorie': round(float(np.sqrt(k / G)) if k else 0.0, 3)}
     print(tag, OUT[tag], flush=True)
-json.dump(OUT, open('/home/user/ratiss-dose12/dose-11-jouets/dose11.json', 'w'), indent=0)
+json.dump(OUT, open((_RATISS_HOME + '/ratiss-dose12/dose-11-jouets/dose11.json'), 'w'), indent=0)
 print('[dose11] ok')

@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # SPDX-License-Identifier: MIT
 """DOSE-04 : canari virtuel (prediciton calib -> verif simu fraiche)."""
+import os as _os, pathlib as _pl  # RATISS: chemins portables (dépôts clonés côte à côte, ou RATISS_HOME)
+_RATISS_HOME = _os.environ.get('RATISS_HOME') or str(_pl.Path(__file__).resolve().parents[2])
 import json, os
 import numpy as np
 from qiskit_ibm_runtime import QiskitRuntimeService
@@ -20,6 +22,6 @@ for tag, (name, ch) in CHAINS.items():
     OUT[tag] = {'readout_moy': round(float(np.mean(ro)), 5), 't1_moy_us': round(float(np.mean(t1)) * 1e6, 1),
                 'g2_moy': round(float(np.mean(g2)), 5), 'SANTE_S': round(S, 4)}
     print(f"{tag} ({name}, chaine {ch}): readout={np.mean(ro):.4f} T1={np.mean(t1) * 1e6:.0f}us 2q={np.mean(g2):.4f} -> S={S:.4f}")
-json.dump(OUT, open('/home/user/ratiss-dose12/dose-04-canari/dose04.json', 'w'), indent=0)
+json.dump(OUT, open((_RATISS_HOME + '/ratiss-dose12/dose-04-canari/dose04.json'), 'w'), indent=0)
 print(f"PREDICTION PRE-ENREGISTREE 2026-09-24 : K meilleur que M par S_K/S_M = {OUT['K']['SANTE_S'] / OUT['M']['SANTE_S']:.2f} (a verifier au prochain tir reel)")
 print('[dose04] ok')

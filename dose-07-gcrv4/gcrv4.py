@@ -2,6 +2,8 @@
 # SPDX-License-Identifier: MIT
 """DOSE-07 : GCR-V4 boite fermee (derive de GCR/univers/collision.py, MIT, meme auteur).
 MODS V4 : boite reflechissante +-BOXM + suivi E_tot (U=-g/r+k/3r3) + gamma=0."""
+import os as _os, pathlib as _pl  # RATISS: chemins portables (dépôts clonés côte à côte, ou RATISS_HOME)
+_RATISS_HOME = _os.environ.get('RATISS_HOME') or str(_pl.Path(__file__).resolve().parents[2])
 import json
 import numpy as np
 from scipy.spatial import Delaunay
@@ -61,5 +63,5 @@ for tag, kw in (('temoin', dict(v_rel=0.0, w=0.5, A=0.0)),
                 ('spark_v5_A20', dict(v_rel=5.0, w=0.5, A=20.0))):
     OUT[tag] = run_v4(**kw)
     print(tag, OUT[tag], flush=True)
-json.dump(OUT, open('/home/user/ratiss-dose12/dose-07-gcrv4/dose07.json', 'w'), indent=0)
+json.dump(OUT, open((_RATISS_HOME + '/ratiss-dose12/dose-07-gcrv4/dose07.json'), 'w'), indent=0)
 print('[dose07] ok')

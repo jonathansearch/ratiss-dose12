@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # SPDX-License-Identifier: MIT
 """DOSE-03 v2 : Rips de la variete dose->reponse (frais, bruit generique)."""
+import os as _os, pathlib as _pl  # RATISS: chemins portables (dépôts clonés côte à côte, ou RATISS_HOME)
+_RATISS_HOME = _os.environ.get('RATISS_HOME') or str(_pl.Path(__file__).resolve().parents[2])
 import json
 import numpy as np
 from ripser import ripser
@@ -52,5 +54,5 @@ for tag, nm in NOISE.items():
                 'diam': round(float(D.max()), 3)}
     OUT[tag]['H'] = H.tolist()
     print(f"{tag}: H0 n={len(h0)} persist={tp0:.3f} | H1 n={len(h1)} persist={tp1:.3f} max={OUT[tag]['H1_max']} | diam={D.max():.3f}")
-json.dump({t: {k: v for k, v in d.items()} for t, d in OUT.items()}, open('/home/user/ratiss-dose12/dose-03-rips/dose03.json', 'w'), indent=0)
+json.dump({t: {k: v for k, v in d.items()} for t, d in OUT.items()}, open((_RATISS_HOME + '/ratiss-dose12/dose-03-rips/dose03.json'), 'w'), indent=0)
 print('[dose03] ok')

@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # SPDX-License-Identifier: MIT
 """DOSE-10 : split-2q (memes angles, 2x portes bruitees) -> gap style-M."""
+import os as _os, pathlib as _pl  # RATISS: chemins portables (dépôts clonés côte à côte, ou RATISS_HOME)
+_RATISS_HOME = _os.environ.get('RATISS_HOME') or str(_pl.Path(__file__).resolve().parents[2])
 import json
 import matplotlib
 matplotlib.use('Agg')
@@ -42,10 +44,10 @@ zb = zz_of(run_qc(cell(False), nm))
 zs = zz_of(run_qc(cell(True), nm))
 print(f'exact={zx:.4f} base={zb:.4f} ({zb / zx:.0%}) split2x={zs:.4f} ({zs / zx:.0%})')
 OUT = {'zz_exact': round(zx, 4), 'base': round(zb, 4), 'split2x': round(zs, 4)}
-json.dump(OUT, open('/home/user/ratiss-dose12/dose-10-gap/dose10.json', 'w'))
+json.dump(OUT, open((_RATISS_HOME + '/ratiss-dose12/dose-10-gap/dose10.json'), 'w'))
 plt.figure(figsize=(6, 4))
 plt.bar(['base (style-K?)', 'split 2x (style-M?)'], [zb / zx, zs / zx], color=['darkgreen', 'firebrick'])
 plt.axhline(0.88, c='darkgreen', ls='--'); plt.axhline(0.60, c='black', ls=':')
 plt.ylabel('zz / exact'); plt.title('DOSE-10 : doubler les portes bruitees -> gap M'); plt.tight_layout()
-plt.savefig('/home/user/ratiss-dose12/dose-10-gap/fig_dose10.png', dpi=100)
+plt.savefig((_RATISS_HOME + '/ratiss-dose12/dose-10-gap/fig_dose10.png'), dpi=100)
 print('[dose10] ok')

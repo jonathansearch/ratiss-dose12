@@ -1,5 +1,7 @@
 """Vrais visuels animés du repo (matplotlib -> GIF). Données : dose-02 (H2 VQE),
 dose-09 (QV) = RÉELLES ; Si diamant Fd-3m (banque Mat3ra) + phonon illustratif."""
+import os as _os, pathlib as _pl  # RATISS: chemins portables (dépôts clonés côte à côte, ou RATISS_HOME)
+_RATISS_HOME = _os.environ.get('RATISS_HOME') or str(_pl.Path(__file__).resolve().parents[2])
 import json
 import numpy as np
 import matplotlib
@@ -8,7 +10,7 @@ import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
 from mpl_toolkits.mplot3d import Axes3D  # noqa: F401
 
-R = '/home/user/ratiss-dose12'
+R = (_RATISS_HOME + '/ratiss-dose12')
 OUT = R + '/visuals'
 import os
 os.makedirs(OUT, exist_ok=True)
